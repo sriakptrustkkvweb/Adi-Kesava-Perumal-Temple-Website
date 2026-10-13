@@ -155,7 +155,65 @@ Do not execute destructive Git commands such as `git reset --hard`, `git clean -
 
 Never stage, commit, push, merge or release changes automatically unless the user has explicitly authorized the relevant action.
 
-## 10. Testing and Verification
+## 10.  Git Branching and Commit Conventions
+
+### Branching
+
+- Use `main` as the primary integration branch.
+- Do not commit directly to `main` unless explicitly authorized by the project maintainer.
+- Create a separate branch for each focused change or related group of changes.
+- Use the following branch prefixes:
+  - `docs/` — documentation changes.
+  - `feature/` — new functionality.
+  - `fix/` — bug fixes.
+  - `test/` — test-related changes.
+  - `chore/` — maintenance and tooling changes.
+- Use short, descriptive, lowercase branch names with hyphens separating words.
+- Include the relevant GitHub Issue or Story reference in the branch name when useful.
+
+### Commit Messages
+
+Use the following format:
+
+`type: short imperative description`
+
+Supported types include:
+
+- `feat` — new functionality.
+- `fix` — bug fixes.
+- `docs` — documentation changes.
+- `test` — tests and test-related changes.
+- `refactor` — code restructuring without intended behaviour changes.
+- `chore` — maintenance and tooling changes.
+
+Commit messages should be concise, specific, and describe the change being made. Use imperative wording where practical.
+
+Examples:
+
+- `docs: document branching conventions`
+- `feat: add temple timings page`
+- `fix: correct mobile navigation`
+- `test: add homepage checks`
+
+### Pull Requests and Merging
+
+- Push the working branch to GitHub and create a Pull Request targeting `main`.
+- Reference the relevant GitHub Issue or Story in the Pull Request description when applicable.
+- Summarize the purpose, important changes, and verification performed.
+- Review the diff and run the applicable checks before merging.
+- Resolve required review comments and validation failures before merging.
+- Merge only when the applicable acceptance criteria and project Definition of Done are satisfied.
+
+### Safety
+
+- Inspect the current branch and working tree before making changes.
+- Do not overwrite or discard existing work without understanding its purpose.
+- Do not force-push, rewrite shared history, or run destructive Git commands without explicit authorization.
+- Do not stage, commit, push, merge, or release changes automatically without the required authorization.
+
+These conventions may be refined as the project matures. Changes should be reviewed and version-controlled through the normal project workflow.
+
+## 11. Testing and Verification
 
 Before declaring work complete:
 
@@ -169,7 +227,7 @@ Do not claim that tests passed if they were not run.
 
 Do not install packages or change dependency versions without checking whether the change is necessary and appropriate. Explain any material dependency or environment changes before proceeding.
 
-## 11. Deployment and Production Safety
+## 12. Deployment and Production Safety
 
 Treat production deployment, DNS changes, domain configuration, access permissions and infrastructure changes as controlled activities.
 
@@ -185,7 +243,7 @@ Do not create paid resources, change domain ownership, alter DNS records, expose
 
 A successful local build does not establish that production deployment is configured or working.
 
-## 12. Architecture Decisions and Documentation
+## 13. Architecture Decisions and Documentation
 
 When a material architectural decision is needed:
 
@@ -199,7 +257,7 @@ Keep the Architecture Overview aligned with approved decisions and actual implem
 
 Distinguish between proposed, implemented, tested and production-verified capabilities.
 
-## 13. Effort and Cost Awareness
+## 14. Effort and Cost Awareness
 
 The developer contributes time voluntarily. Effort estimates and actual hours are recorded for transparency and planning, not billing.
 
@@ -214,7 +272,7 @@ Before recommending a paid service, new hosting arrangement or recurring expense
 
 Do not represent a free-tier service as permanently free or assume that a provider's limits and terms will remain unchanged.
 
-## 14. Completion Criteria
+## 15. Completion Criteria
 
 Before marking a work item complete, ensure that the applicable conditions have been satisfied:
 
@@ -231,7 +289,7 @@ Before marking a work item complete, ensure that the applicable conditions have 
 
 If any required condition remains incomplete, report it clearly instead of declaring the work fully done.
 
-## 15. Final Instruction
+## 16. Final Instruction
 
 Act as a careful engineering assistant working under the direction of the project maintainer.
 
