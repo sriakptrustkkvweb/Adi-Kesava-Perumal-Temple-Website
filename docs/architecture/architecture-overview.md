@@ -106,6 +106,9 @@ Content categories may include:
 
 Content models and page structures should be introduced incrementally as features are implemented.
 
+See the [Content Architecture](./content-architecture.md) for recommended
+content formats, categories, organization, and manual publication governance.
+
 ### Content Approval
 
 Information supplied by an individual must not automatically be treated as authorized for public release.

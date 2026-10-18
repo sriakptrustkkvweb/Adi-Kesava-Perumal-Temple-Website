@@ -34,7 +34,14 @@ Contains shared styles, including global styles and common design rules. Page-sp
 
 ### `src/content/`
 
-Reserved for organized temple website content, such as history, temple information, timings, announcements, and other approved material. The directory does not introduce a CMS, database, or content-management workflow by itself.
+Reserved for organized, approved temple website content, including history,
+deity information, trustee details, timings, location, announcements, and
+photograph and video-reference metadata. Use Markdown for narrative content and
+structured data where repeated fields need consistent presentation or sorting.
+See the [Content Architecture](./content-architecture.md) for recommended
+formats, organization, naming, and manual publication governance. This
+directory does not introduce schemas, collection loaders, a CMS, database, or
+content-management workflow by itself.
 
 Content must be reviewed and authorized by the appropriate temple representative before publication.
 
