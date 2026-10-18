@@ -108,6 +108,8 @@ Content models and page structures should be introduced incrementally as feature
 
 See the [Content Architecture](./content-architecture.md) for recommended
 content formats, categories, organization, and manual publication governance.
+See the [Media Architecture](./media-architecture.md) for image asset delivery
+and video-reference guidance.
 
 ### Content Approval
 

@@ -28,6 +28,9 @@ content metadata. Video entries should normally reference an approved external
 host rather than store video files in the repository. Introduce only the
 categories and files needed by implemented pages.
 
+See the [Media Architecture](./media-architecture.md) for image delivery,
+responsive performance, video-reference, and media-rights guidance.
+
 The following fields are representative, not a required schema. Select only
 fields needed for a specific published item and do not add personal or
 operational details without a clear public purpose and authorization.
