@@ -1,0 +1,99 @@
+---
+const navigationItems = [
+	{ label: 'Home', href: '/', active: true },
+	{ label: 'Temple History', href: '/history/' },
+	{ label: 'Deities', href: '/deities/' },
+	{ label: 'Temple Timings', href: '/timings/' },
+	{ label: 'Location & Contact', href: '/location/' },
+	{ label: 'Trustees', href: '/trustees/' },
+	{ label: 'Photo Gallery', href: '/gallery/' },
+	{ label: 'Video Gallery', href: '/videos/' },
+	{ label: 'Announcements', href: '/announcements/' },
+];
+---
+
+<header class="site-header">
+	<div class="site-header__inner">
+		<p class="site-header__name">
+			Arulmigu Sri Ambujavalli Thaayar Samedha Sri Adhi Kesava Perumal Temple
+		</p>
+		<nav aria-label="Main navigation">
+			<ul class="site-navigation">
+				{
+					navigationItems.map(({ label, href, active }) => (
+						<li>
+							{active ? (
+								<a href={href} aria-current="page">
+									{label}
+								</a>
+							) : (
+								<span class="site-navigation__inactive" aria-disabled="true">
+									{label}
+								</span>
+							)}
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<style>
+	.site-header {
+		border-bottom: 1px solid #dedbd4;
+		background: #fff;
+		color: #27231e;
+	}
+
+	.site-header__inner {
+		max-width: 72rem;
+		margin-inline: auto;
+		padding: 1rem 1.25rem;
+	}
+
+	.site-header__name {
+		margin: 0 0 0.75rem;
+		font-size: 1.125rem;
+		font-weight: 700;
+		line-height: 1.4;
+	}
+
+	.site-navigation {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem 1rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.site-navigation a,
+	.site-navigation__inactive {
+		display: inline-block;
+		padding-block: 0.375rem;
+		font-size: 0.9375rem;
+		line-height: 1.5;
+	}
+
+	.site-navigation a {
+		color: #593c17;
+		text-decoration: underline;
+		text-decoration-thickness: 0.08em;
+		text-underline-offset: 0.2em;
+	}
+
+	.site-navigation a[aria-current='page'] {
+		font-weight: 700;
+	}
+
+	.site-navigation a:focus-visible {
+		border-radius: 0.125rem;
+		outline: 3px solid #8a4b08;
+		outline-offset: 3px;
+	}
+
+	.site-navigation__inactive {
+		color: #625e57;
+	}
+</style>
