@@ -18,19 +18,34 @@ src/
 
 ### `src/pages/`
 
-Contains Astro pages and route entry points. Astro uses file-based routing, so filenames and directory paths determine the corresponding website routes.
+Contains Astro page route entry points and page composition. Astro uses
+file-based routing, so filenames and directory paths determine the corresponding
+website routes. Pages should assemble layouts, reusable components, and
+content rather than becoming the only copy of editable website information.
 
 ### `src/layouts/`
 
-Contains shared page layouts that define common page structure, such as the document shell, navigation, footer, and metadata. Layouts should be introduced when they provide genuine reuse.
+Contains shared page layouts that define common document structure, such as the
+HTML document shell, shared navigation placement, footer placement, and
+page-level metadata. Layouts should be introduced when they provide genuine
+reuse and should focus on presentation structure rather than duplicating
+editable temple content.
 
 ### `src/components/`
 
-Contains reusable interface components used by pages or layouts. Components should have clear responsibilities and should not be created solely to wrap trivial markup without a reuse or clarity benefit.
+Contains reusable Astro presentation and behavior components used by pages or
+layouts. Components should have clear responsibilities and should not be
+created solely to wrap trivial markup without a reuse or clarity benefit.
+Presentation components should consume shared or page content rather than
+hardcoding editable website information.
 
 ### `src/styles/`
 
-Contains shared styles, including global styles and common design rules. Page-specific styles may remain alongside their relevant Astro components when that is simpler.
+Contains presentation styling, including global styles and common design rules.
+Page-specific styles may remain alongside their relevant Astro components when
+that is simpler. Styling must remain separate from editable content and should
+not be used to hide unapproved or draft information from the intended public
+page.
 
 ### `src/content/`
 
@@ -38,10 +53,18 @@ Reserved for organized, approved temple website content, including history,
 deity information, trustee details, timings, location, announcements, and
 photograph and video-reference metadata. Use Markdown for narrative content and
 structured data where repeated fields need consistent presentation or sorting.
+Shared configuration may also use an agreed structured file under this existing
+directory where appropriate; do not create a new configuration structure or
+schema as part of the content editing standards.
 See the [Content Architecture](./content-architecture.md) for recommended
-formats, organization, naming, and manual publication governance.
+formats, organization, naming, and manual publication governance, including the
+detailed [Content Authoring, Editing and Publication Standards](./content-architecture.md#content-authoring-editing-and-publication-standards).
 
-Content must be reviewed and authorized by the appropriate temple representative before publication.
+Content files are edited narrative and structured website content, not Astro
+layout or component implementation. Pages and components consume this content;
+they must not duplicate authoritative content as hardcoded text. Content must be
+reviewed and authorized by the appropriate temple representative before
+publication.
 
 ## Supporting Directories
 
