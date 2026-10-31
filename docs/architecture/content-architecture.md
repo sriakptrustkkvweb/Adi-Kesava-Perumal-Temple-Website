@@ -63,7 +63,193 @@ separate verification and publication approval.
 - Keep category-specific fields small and consistently named. Avoid introducing
   identifiers or metadata that have no current use.
 
+## Content Authoring, Editing and Publication Standards
+
+### Content classification
+
+Classify website information before choosing its storage location:
+
+- **Shared website configuration:** Temple name display, navigation labels and
+  route paths, footer labels, and shared website metadata such as a default
+  title or description. Keep these in an agreed structured-file location,
+  preferably under `src/content/` where that location provides practical reuse
+  and does not introduce a separate parallel content tree or new schema.
+  Navigation labels and route paths are presentation configuration by default
+  and are not automatically governed temple content merely because the
+  navigation is displayed in the site header or footer.
+- **Page-specific content:** Home page text, temple history, deity descriptions,
+  and other information that belongs to a particular published page. Use
+  narrative Markdown where prose is clear; use structured metadata only where
+  repeated fields or display behavior require it.
+- **Structured records:** Timings, location details, trustee entries,
+  announcements, photograph metadata, and other repeated records that need
+  consistent fields, sorting, or filtering.
+- **Presentation code:** Astro layouts, components, styling, and interaction
+  code. Presentation code controls structure, rendering, and behavior; it must
+  not become the only editable copy of reusable temple information.
+
+A content item should have one clear authoritative location in the repository.
+If information changes, the contributor should update that location rather than
+creating another copy for a page, component, or file.
+
+### Content location and formats
+
+Continue to use the existing `src/content/` architecture established by S11.
+Do not create another parallel content tree or introduce content schemas,
+collections, loaders, or directories without a separately approved need.
+
+- Use Markdown under `src/content/` for narrative material.
+- Use JSON or YAML for small structured records under `src/content/` when
+  repeated fields, consistent rendering, sorting, or filtering make structure
+  useful.
+- Use an agreed structured file for shared website configuration when it is
+  reused by multiple pages or components. Prefer an existing `src/content/`
+  location where appropriate; do not create a separate configuration
+  architecture or schema for this purpose.
+- Keep image assets in `public/images/` and video references in approved
+  content metadata according to the
+  [Media Architecture](./media-architecture.md). Do not duplicate media
+  metadata, captions, alternative text, rights information, or asset paths in
+  presentation code.
+- Do not duplicate the same temple name, page text, structured record, label,
+  or media reference across files or components.
+
+The formats above remain format guidance, not a requirement to add schemas,
+Astro collections, or new frontmatter fields for this story.
+
+### Editing conventions
+
+Contributors should:
+
+1. Add new content only under the existing `src/content/` category structure
+   that matches the content type. Add a new category only when an implemented
+   website need clearly requires it.
+2. Edit the existing authoritative content file rather than adding a second
+   copy or editing generated output.
+3. Use descriptive lowercase kebab-case filenames and category directories.
+   Use names that remain stable rather than names that encode a temporary
+   layout or route.
+4. Keep fields in existing structured records consistently named and use only
+   fields needed for the published content. Use ISO 8601 dates (`YYYY-MM-DD`)
+   for verified dates. Avoid inconsistent spelling, units, and date formats.
+5. Keep editable temple information out of Astro layouts, components, and
+   style files. Pages and components should consume shared or page content
+   rather than hardcoding the same information.
+6. Reuse content by importing or loading the existing shared content from the
+   appropriate implementation mechanism. Do not copy or redeclare a value that
+   already has one authoritative file.
+
+Before changing content, inspect nearby files for established conventions and
+preserve useful fields, formatting, and links. Content examples or AI-generated
+drafts are not evidence that information is accurate or authorized.
+
+### Editorial status
+
+Draft, Review, and Approved are the human-managed editorial states defined
+under [Manual content governance](#manual-content-governance). They describe
+progress only: neither Draft nor Review means publication approval, and
+Approved means the exact content and intended public use have been confirmed
+by an authorized temple representative as described there.
+
+These states provide no automated enforcement, automated approval, build
+exclusion, or proof of authority. A status field, filename, folder, label, or
+pull-request state does not establish approval by itself.
+
+### Roles and approval workflow
+
+The responsibilities are separate:
+
+- **Content author/contributor:** Prepares accurate, clearly scoped content
+  and submits it through the GitHub change workflow.
+- **Technical reviewer/project maintainer:** Checks formatting, repository
+  conventions, Markdown or structured-file correctness, build compatibility,
+  links, privacy, and presentation integration. Technical review does not
+  grant temple publication authority.
+- **Authorized temple representative/publication approver:** Confirms authority,
+  accuracy where applicable, and approval for the exact content and intended
+  public use.
+
+Use the following workflow:
+
+1. The author prepares the content change.
+2. The author submits a pull request containing the exact proposed content
+   and any necessary factual or media references.
+3. The technical reviewer checks correctness, formatting, repository
+   conventions, and build compatibility.
+4. The authorized temple representative confirms publication approval for the
+   exact content and intended public use.
+5. The approval is recorded or referenced in the pull request.
+6. After technical review and publication approval, the change can be merged
+   and published according to the project workflow.
+
+A technical review, successful build, closed issue, or merged pull request is
+not by itself temple publication approval. Approval must come from the
+authorized representative before the approved content is used by a published
+page.
+
+Publication approval is also distinct from repository visibility. Draft or
+review pull requests may exist in a repository only when they contain
+non-sensitive proposed public content that is suitable for review under the
+repository's access controls. They must still not be merged into the
+publication branch or referenced by a published page until the temple
+publication approval is confirmed.
+
+### Approval evidence
+
+The pull request should identify:
+
+- The content or content files being approved.
+- The authorized approver's role, without inventing an individual role or
+  authority that has not been confirmed.
+- The approval confirmation or an appropriate reference to the approval.
+- The scope of the approval, including the intended page or public use where
+  relevant.
+
+Do not commit confidential correspondence, private personal information,
+credentials, or unnecessarily detailed approval records to the repository.
+Link or summarize approval evidence only to the extent needed to support a
+reviewable public change.
+
+### Privacy and repository visibility
+
+Separate repository safety from publication approval:
+
+- **Private, confidential, sensitive, or unauthorized personal information**
+  must never be committed, including as draft content or placeholder examples.
+  This includes credentials, confidential records, private financial or contact
+  information, unnecessary personal information, sensitive media, and secret
+  access information.
+- **Non-sensitive proposed public content** may be submitted for technical and
+  editorial review when its use is appropriate for the repository and its
+  visibility or access controls. Such proposals may still be inaccurate,
+  disputed, draft, or awaiting approval and therefore are not authorized for
+  publication merely because they are committed or included in a pull request.
+- **Publication-unapproved content** must not be merged into the publication
+  branch and must not be referenced by pages intended for publication. A
+  successful build, technical approval, issue closure, repository inclusion,
+  or pull-request merge does not replace temple publication approval.
+
+Keep unresolved or uncertain material outside the repository where practical,
+or use an appropriate non-public workflow until its authority, accuracy,
+privacy, rights, and publication approval are resolved.
+
+### Publication safety
+
+Marking a content item as Draft, or placing a draft status label in a file, does
+not automatically prevent Astro or another build process from including it in a
+static build. Generated pages may expose any referenced unapproved content.
+
+Unapproved content must not be referenced by pages intended for publication.
+Draft exclusion, automated status filtering, automated approval enforcement, and
+automated publication workflows are outside S37's scope and are not substitutes
+for the manual approval process.
+
 ## Manual content governance
+
+The repository-safety and publication-safety distinctions are summarized in
+[Privacy and repository visibility](#privacy-and-repository-visibility) and
+[Publication safety](#publication-safety). The following checks remain the
+pre-publication requirements for each content item.
 
 Content follows three manual states:
 
