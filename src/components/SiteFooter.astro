@@ -2,7 +2,7 @@
 ---
 
 <footer class="site-footer">
-	<div class="site-footer__inner">
+	<div class="site-footer__inner content-container">
 		<nav aria-label="Footer navigation">
 			<a href="/">Home</a>
 		</nav>
@@ -11,14 +11,13 @@
 
 <style>
 	.site-footer {
-		border-top: 1px solid #dedbd4;
-		color: #27231e;
+		border-top: 1px solid var(--colour-border);
+		background: var(--colour-page-background);
+		color: var(--colour-text);
 	}
 
 	.site-footer__inner {
-		max-width: 72rem;
-		margin-inline: auto;
-		padding: 1rem 1.25rem;
+		padding-block: 1rem;
 	}
 
 	.site-footer nav {
@@ -30,17 +29,11 @@
 	.site-footer a {
 		display: inline-block;
 		padding-block: 0.375rem;
-		color: #593c17;
+		color: var(--colour-accent);
 		font-size: 0.9375rem;
 		line-height: 1.5;
 		text-decoration: underline;
 		text-decoration-thickness: 0.08em;
 		text-underline-offset: 0.2em;
-	}
-
-	.site-footer a:focus-visible {
-		border-radius: 0.125rem;
-		outline: 3px solid #8a4b08;
-		outline-offset: 3px;
 	}
 </style>
