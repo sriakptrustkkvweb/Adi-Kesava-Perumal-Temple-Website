@@ -14,9 +14,29 @@ const navigationItems = [
 
 <header class="site-header">
 	<div class="site-header__inner content-container">
-		<p class="site-header__name">
-			Arulmigu Sri Ambujavalli Thaayar Samedha Sri Adhi Kesava Perumal Temple
-		</p>
+		<div class="site-header__brand">
+			<div class="site-header__logo">
+				<img
+					src="/images/temple-logo.png"
+					alt="Arulmigu Sri Ambujavalli Thaayar Samedha Sri Adhi Kesava Perumal Temple logo"
+					width="360"
+					height="360"
+				/>
+			</div>
+			<h1 class="site-header__name" lang="ta">
+				அருள்மிகு ஸ்ரீ அம்புஜவல்லி தாயார் சமேத ஸ்ரீ ஆதி கேசவ பெருமாள் கோவில்
+			</h1>
+			<div class="site-header__periyava">
+				<img
+					src="/images/periyava-photo.jpg"
+					alt="Portrait of the Periyava"
+					width="466"
+					height="659"
+					loading="eager"
+					fetchpriority="high"
+				/>
+			</div>
+		</div>
 		<nav aria-label="Main navigation">
 			<ul class="site-navigation">
 				{
@@ -50,11 +70,45 @@ const navigationItems = [
 		padding-block: 1rem;
 	}
 
+	.site-header__brand {
+		--header-side-size: clamp(4.5rem, 9vw, 7rem);
+		display: grid;
+		grid-template-columns: var(--header-side-size) minmax(0, 1fr) var(--header-side-size);
+		align-items: center;
+		gap: var(--space-md);
+		margin-bottom: 0.75rem;
+	}
+
+	.site-header__logo {
+		width: var(--header-side-size);
+		height: var(--header-side-size);
+		aspect-ratio: 1;
+	}
+
+	.site-header__logo img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	.site-header__periyava {
+		width: 85px;
+		height: 120px;
+		justify-self: end;
+	}
+
+	.site-header__periyava img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
 	.site-header__name {
-		margin: 0 0 0.75rem;
-		font-size: 1.125rem;
+		margin: 0;
+		font-size: clamp(1.125rem, 2.5vw, 1.75rem);
 		font-weight: 700;
-		line-height: 1.4;
+		line-height: 1.65;
+		text-align: center;
 	}
 
 	.site-navigation {
@@ -87,5 +141,36 @@ const navigationItems = [
 
 	.site-navigation__inactive {
 		color: var(--colour-muted);
+	}
+
+	@media (max-width: 47.999rem) {
+		.site-header__brand {
+			--header-side-size: 4rem;
+			grid-template-columns: 1fr var(--header-side-size);
+			grid-template-rows: 85px auto;
+			column-gap: var(--space-sm);
+			row-gap: var(--space-sm);
+		}
+
+		.site-header__logo {
+			grid-column: 1;
+			grid-row: 1;
+			align-self: center;
+		}
+
+		.site-header__name {
+			grid-column: 1 / -1;
+			grid-row: 2;
+			font-size: clamp(1rem, 5vw, 1.375rem);
+			text-wrap: balance;
+		}
+
+		.site-header__periyava {
+			grid-column: 2;
+			grid-row: 1;
+			justify-self: end;
+			width: 60px;
+			height: 85px;
+		}
 	}
 </style>
