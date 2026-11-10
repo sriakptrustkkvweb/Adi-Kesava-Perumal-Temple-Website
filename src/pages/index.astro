@@ -1,7 +1,70 @@
 ---
+import { Content as HomePageContent } from '../content/home-page.md';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Astro" description="A starter page built with Astro.">
-	<h1>Astro</h1>
+<BaseLayout
+	title="Home"
+	description="A devotional welcome to the temple."
+>
+	<article class="home-page">
+		<figure class="home-page__artwork">
+			<img
+				src="/images/sri-vaishnava-symbols.png"
+				alt="Traditional Sri Vaishnava symbols: Sudarshana Chakra on the left, Thiruman in the centre, and Shankha on the right, with ornamental decoration."
+				width="1024"
+				height="607"
+			/>
+		</figure>
+		<div class="home-page__devotional-text" lang="ta">
+			<HomePageContent />
+		</div>
+	</article>
 </BaseLayout>
+
+<style>
+	.home-page {
+		display: grid;
+		justify-items: center;
+		gap: var(--space-xl);
+		text-align: center;
+	}
+
+	.home-page__artwork {
+		width: 100%;
+		max-width: 58rem;
+		margin: 0;
+	}
+
+	.home-page__artwork img {
+		width: 100%;
+		height: auto;
+		margin-inline: auto;
+	}
+
+	.home-page__devotional-text {
+		width: 100%;
+		max-width: 65rem;
+	}
+
+	:global(.home-page__devotional-text h2) {
+		margin-bottom: var(--space-lg);
+		color: var(--colour-accent);
+		font-size: clamp(1.5rem, 1.25rem + 1.25vw, 2.25rem);
+		line-height: 1.65;
+	}
+
+	:global(.home-page__devotional-text p) {
+		width: 100%;
+		max-width: none;
+		margin: 0 auto var(--space-md);
+		color: var(--colour-accent);
+		font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+		line-height: 1.9;
+		overflow-wrap: anywhere;
+	}
+
+	:global(.home-page__devotional-text p:last-child) {
+		margin-bottom: 0;
+	}
+</style>
